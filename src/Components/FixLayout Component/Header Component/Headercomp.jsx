@@ -18,12 +18,11 @@ const Headercomp = () => {
         <Middleheadercomp />
       </div>
 
-
       {/*This is Menubar Section*/}
       <div className='flex justify-evenly bg-blue-500 p-2'>
         {MenuList?.map((items) => {
           return (
-            <div className='font-semibold text-white'>
+            <div className=' text-white'>
               <NavLink className={({ isActive }) => (isActive ? "border-b-2 border-blue-100 transition-all" : "")} to={items?.path}>{items?.name}</NavLink>
             </div>
           )
