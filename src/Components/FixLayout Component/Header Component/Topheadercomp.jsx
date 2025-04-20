@@ -31,7 +31,7 @@ const Topheadercomp = () => {
                     })}
                 </div>
             </div>
-            <hr className='border-[1px] border-gray-400 mr-10 ml-10 ' />
+            <hr className='border-[1px] border-gray-300 mr-10 ml-10 ' />
         </div>
     )
 }
