@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
 import { Dashboardmenu } from '../../Utlis/Dashboardpage'
+import Addproductcomp from './Addproductcomp';
+import Addcategoriescomp from './Addcategoriescomp';
+import Addusercomp from './Addusercomp';
 
 const Dashboardcomp = () => {
   const [selected, setselected] = useState("Add Product");
+
+  const content = {
+    "Add Product" : <Addproductcomp />,
+    "Add Category" : <Addcategoriescomp />,
+    "Add User" : <Addusercomp />
+  }
   
   return (
     <div>
@@ -14,10 +23,9 @@ const Dashboardcomp = () => {
             return(
               <div
               onClick={() => setselected(items?.name)}
-              className={`${selected === items?.name ? "bg-blue-200 font-semibold" : ""} flex items-center  text-[18px] gap-5 p-2 cursor-pointer transition-all`}>
+              className={`${ selected === items?.name ? "bg-blue-200 font-semibold rounded-md" : ""} flex items-center  text-[18px] gap-5 p-2 cursor-pointer transition-all`}>
                 <h1 className='bg-gray-100 p-3 rounded-md'>{items?.icon}</h1>
                 <h1>{items?.name}</h1>
-
               </div>
             )
           })}
@@ -25,8 +33,8 @@ const Dashboardcomp = () => {
         </div>
 
         {/*This is From Section*/}
-        <div className='w-[80%] h-[100%] bg-gray-100 rounded-md ml-5'>
-          
+        <div className='p-5 w-[80%] h-[500px] bg-gray-200 rounded-md ml-5'>
+          {content[selected]}
         </div>
 
       </div>
