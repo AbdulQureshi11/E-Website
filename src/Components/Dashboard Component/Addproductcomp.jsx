@@ -1,7 +1,8 @@
 import React from 'react'
 import Inputfied from '../Common/Inputfied'
 import PrimaryBtn from '../Common/PrimaryBtn'
-import { Form, Formik } from 'formik'
+import { ErrorMessage, Form, Formik } from 'formik'
+import * as Yup from "yup";
 
 const Addproductcomp = () => {
     const initialValues = {
@@ -9,21 +10,27 @@ const Addproductcomp = () => {
         Title: "",
     }
 
+    const validationSchema = Yup.object().shape({
+        Name: Yup.string()
+            .required('This Field is Required*'),
+        Title: Yup.string()
+            .required('This Field is Required*'),
+    });
+
     const handleSubmit = (values) => {
-        console.log("Values");
+        console.log("values", values);
     }
 
     return (
-        <div className='space-y-5'>
-
+        <div>
             <Formik
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
-            //validationSchema={validationSchema}
+                validationSchema={validationSchema}
             >
-                {() => {
+                {({ values, setFieldValue }) => {
                     return (
-                        <Form>
+                        <Form className='space-y-5'>
                             <div>
                                 <Inputfied
                                     label="Product Name"
@@ -31,10 +38,11 @@ const Addproductcomp = () => {
                                     type="text"
                                     placeholder="Enter Product Name"
                                     name="Name"
-                                    value=""
-                                    //onChange = {}
+                                    value={values.Name}
+                                    onChange={(e) => setFieldValue("Name", e.target.value)}
                                     className=""
                                 />
+                                <ErrorMessage name="Name" component='div' className='font-semibold text-red-700' />
                             </div>
 
                             <div>
@@ -44,24 +52,21 @@ const Addproductcomp = () => {
                                     type="text"
                                     placeholder="Enter Product Title"
                                     name="Title"
-                                    value=""
-                                    //onChange = {}
+                                    value={values.Title}
+                                    onChange={(e) => setFieldValue("Title", e.target.value)}
                                     className=""
                                 />
+                                <ErrorMessage name="Title" component='div' className='font-semibold text-red-700' />
                             </div>
 
                             <div>
                                 <PrimaryBtn className="bg-green-600 hover:bg-green-500 transition-all font-semibold text-white p-2 flex justify-center items-center w-[100px] rounded-md"> Save </PrimaryBtn>
                             </div>
 
-
                         </Form>
                     )
                 }}
-
             </Formik>
-
-
         </div>
     )
 }
