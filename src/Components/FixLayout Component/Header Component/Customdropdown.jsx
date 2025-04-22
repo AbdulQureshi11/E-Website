@@ -20,7 +20,7 @@ const Customdropdown = () => {
             {dropdown ?
                 <div
                     onClick={() => setdropdown(!dropdown)}
-                    className='absolute top-8 bg-white w-[100px] rounded-md font-semibold'>
+                    className='absolute  top-8 bg-white w-[100px] z-10 rounded-md font-semibold'>
                     <Link
                         to='/login'>
                         <h1 className='hover:bg-blue-100 p-2 rounded-t-md '>Login</h1>
