@@ -1,6 +1,7 @@
 import React from 'react'
 import { Allcategories } from '../../../Utlis/Files'
 import { IoSearchOutline } from "react-icons/io5";
+import Customdropdown from './Customdropdown';
 
 
 const Middleheadercomp = () => {
@@ -45,7 +46,7 @@ const Middleheadercomp = () => {
 
                 {/*This is Login Button Section */}
                 <div className='flex items-center w-[20%] justify-end '>
-                    <button className='flex bg-blue-500 justify-center mr-20 shadow-md text-white font-semibold items-center w-[100px] p-1 rounded-md'>Login</button>
+                    <Customdropdown />
                 </div>
 
 

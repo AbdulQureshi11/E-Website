@@ -26,3 +26,8 @@ export const Allcategories = [
     {id:1, name: "All Categories", icon: <MdOutlineKeyboardArrowDown /> }
 ]
 
+export const loginlist = [
+    {id: 1, name: 'Login', path: '/Login'},
+    {id: 2, name: 'Signup', path: '/Singup'},
+]
+
