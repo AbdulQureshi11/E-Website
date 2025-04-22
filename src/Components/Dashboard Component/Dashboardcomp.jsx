@@ -31,9 +31,9 @@ const Dashboardcomp = () => {
           })}
 
         </div>
-
+        
         {/*This is From Section*/}
-        <div className='p-5 w-[80%] bg-gray-200 rounded-md ml-5'>
+        <div className='p-5 w-[80%] bg-gray-100 rounded-md ml-5'>
           {content[selected]}
         </div>
 
