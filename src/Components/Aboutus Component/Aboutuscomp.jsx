@@ -5,6 +5,8 @@ import { IoMdAdd } from "react-icons/io";
 import { RiSubtractLine } from "react-icons/ri";
 import { GrPowerReset } from "react-icons/gr";
 import { LiaRandomSolid } from "react-icons/lia";
+import { RxCross2 } from "react-icons/rx";
+
 
 const Aboutuscomp = () => {
 
@@ -27,12 +29,12 @@ const Aboutuscomp = () => {
   }
 
   function clickbyamount() {
-    usedispatch(incrementByAmount(amount)); 
+    usedispatch(incrementByAmount(amount));
   }
 
   function multiplybyclick() {
     usedispatch(multiplybyamount(multiplyamount));
-  } 
+  }
 
   return (
     <div className='flex ml-5 mr-5 mt-5'>
@@ -75,7 +77,6 @@ const Aboutuscomp = () => {
           Add This Amount
         </button>
 
-        
         <input
           type='number'
           name='multiplyamount'
@@ -89,12 +90,12 @@ const Aboutuscomp = () => {
         <button
           onClick={multiplybyclick}
           className='flex items-center gap-5 p-2 rounded-b-2xl space-y-5 bg-blue-100 w-full text-[20px] hover:bg-blue-200'>
-          <LiaRandomSolid className='bg-gray-100 p-2 rounded-xl text-[40px]' />
+          <RxCross2 className='bg-gray-100 p-2 rounded-xl text-[40px]' />
           Multiply This Amount
         </button>
       </div>
 
-      <div className='w-[80%] p-2 text-[30px] h-[500px] bg-gray-100 rounded-2xl ml-5'>
+      <div className=' p-2 text-[30px] h-full bg-gray-100 rounded-2xl ml-5'>
         <h1>Counter: {count} </h1>
       </div>
     </div>
