@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Inputfied from '../Common/Inputfied'
 import { Formik, Form, ErrorMessage } from 'formik'
 import * as Yup from "yup";
 import PrimaryBtn from '../Common/PrimaryBtn';
-import { asyncGetCategories } from '../../features/counter/CounterSlices';
-import {useDispatch} from 'react-redux'
 
 const Addcategoriescomp = () => {
 
-  const usedispatch = useDispatch();
-  useEffect(() => {
-    usedispatch(asyncGetCategories())
-  }, [])
 
   const initialValues = {
     category: ''
