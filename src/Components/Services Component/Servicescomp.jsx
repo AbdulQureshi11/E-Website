@@ -8,7 +8,7 @@ const Servicescomp = () => {
   const [selected, setselected] = useState("Add Product");
 
   const content = {
-    "Add Product": <Addproductcomp />,
+    "Add Product":  <Addproductcomp />,
     "Add Category": <Addcategoriescomp />,
     "Add User": <Addusercomp />,
   }
