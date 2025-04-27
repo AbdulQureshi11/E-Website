@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Inputfied from '../Common/Inputfied'
 import { Formik, Form, ErrorMessage } from 'formik'
 import * as Yup from "yup";
 import PrimaryBtn from '../Common/PrimaryBtn';
+import { asyncGetCategories } from '../../features/counter/CounterSlices';
+import {useDispatch} from 'react-redux'
 
 const Addcategoriescomp = () => {
+
+  const usedispatch = useDispatch();
+  useEffect(() => {
+    usedispatch(asyncGetCategories())
+  }, [])
+
   const initialValues = {
     category: ''
   }
@@ -57,7 +65,7 @@ const Addcategoriescomp = () => {
                 </thead>
                 <tbody className='border border-gray-800'>
                   <tr className='border border-gray-800'>
-                  <td className='border border-gray-800 font-semibold'></td>
+                    <td className='border border-gray-800 font-semibold'></td>
                     <td className='border border-gray-800 font-semibold p-2'>Category</td>
                     <td className=' p-2 flex justify-evenly'>
                       <button className='bg-blue-600 px-4 py-1 rounded-md text-white'>Update</button>
