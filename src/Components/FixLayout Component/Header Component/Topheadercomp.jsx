@@ -9,11 +9,13 @@ const Topheadercomp = () => {
 
                 {/*This is TopHeader1 including EN and USD */}
                 <div className='w-[50%] flex ml-10 gap-5 '>
-                    {topheader1?.map((items) => {
+                    {topheader1?.map((header1) => {
                         return (
-                            <div className='flex items-center hover:text-blue-600 cursor-pointer '>
-                                <h1>{items?.name}</h1>
-                                <h1>{items?.icon}</h1>
+                            <div 
+                            key={header1?.id}
+                            className='flex items-center hover:text-blue-600 cursor-pointer '>
+                                <h1>{header1?.name}</h1>
+                                <h1>{header1?.icon}</h1>
                             </div>
                         )
                     })}
@@ -21,11 +23,13 @@ const Topheadercomp = () => {
 
                 {/*This is TopHeader2 including Wishlisht and Trackorder */}
                 <div className='w-[50%] mr-10 gap-5 justify-end items-center flex'>
-                    {topheader2?.map((items) => {
+                    {topheader2?.map((header2) => {
                         return (
-                            <div className='flex items-center gap-1 hover:text-blue-600 cursor-pointer '>
-                                <h1>{items?.icon}</h1>
-                                <h1>{items?.name}</h1>
+                            <div 
+                            key={header2?.id}
+                            className='flex items-center gap-1 hover:text-blue-600 cursor-pointer '>
+                                <h1>{header2?.icon}</h1>
+                                <h1>{header2?.name}</h1>
                             </div>
                         )
                     })}

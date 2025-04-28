@@ -22,6 +22,7 @@ const Dashboardcomp = () => {
           {Dashboardmenu?.map((items) => {
             return(
               <div
+              key={items?.id}
               onClick={() => setselected(items?.name)}
               className={`${ selected === items?.name ? "bg-blue-200 font-semibold rounded-md" : ""} flex items-center  text-[18px] gap-5 p-2 cursor-pointer transition-all`}>
                 <h1 className='bg-gray-100 p-3 rounded-md'>{items?.icon}</h1>

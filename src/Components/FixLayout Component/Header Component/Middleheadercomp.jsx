@@ -20,11 +20,13 @@ const Middleheadercomp = () => {
                     <div className='flex w-[75%]  h-[35%]'>
 
                         <div className='bg-gray-200 flex items-center justify-center w-[30%] rounded-l-md h-[100%]'>
-                            {Allcategories?.map((items) => {
+                            {Allcategories?.map((middle) => {
                                 return (
-                                    <div className=' flex items-center hover:text-blue-600  cursor-pointer gap-1'>
-                                        <h1>{items?.name}</h1>
-                                        <h1>{items?.icon}</h1>
+                                    <div 
+                                    key={middle?.id}
+                                    className=' flex items-center hover:text-blue-600  cursor-pointer gap-1'>
+                                        <h1>{middle?.name}</h1>
+                                        <h1>{middle?.icon}</h1>
                                     </div>
                                 )
                             })}

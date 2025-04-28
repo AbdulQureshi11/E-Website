@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Inputfied from '../Common/Inputfied'
 import { Formik, Form, ErrorMessage } from 'formik'
 import * as Yup from "yup";
 import PrimaryBtn from '../Common/PrimaryBtn';
+import { useDispatch, useSelector } from 'react-redux';
+import { asyncGetCategories } from '../../features/counter/CategorySlice';
 
 const Addcategoriescomp = () => {
 
+  const category = useSelector((state) => state?.category.category);
+  console.log("CategoryComp", category);
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(asyncGetCategories())
+  }, [dispatch])
 
   const initialValues = {
     category: ''
@@ -53,19 +63,28 @@ const Addcategoriescomp = () => {
               </Form>
               <table className='border border-gray-800 w-full mt-10'>
                 <thead className='border border-gray-800'>
+                  <tr>
                   <th className='border border-gray-800'>Id</th>
                   <th className='border border-gray-800'>Categories</th>
                   <th className='border border-gray-800'>Action Buttons</th>
+                  </tr>
                 </thead>
                 <tbody className='border border-gray-800'>
-                  <tr className='border border-gray-800'>
-                    <td className='border border-gray-800 font-semibold'></td>
-                    <td className='border border-gray-800 font-semibold p-2'>Category</td>
-                    <td className=' p-2 flex justify-evenly'>
-                      <button className='bg-blue-600 px-4 py-1 rounded-md text-white'>Update</button>
-                      <button className='bg-red-600 px-4 py-1 rounded-md text-white'>Delete</button>
-                    </td>
-                  </tr>
+                  {
+                    category?.map((items, index) => {
+                      return(
+                        <tr className='border border-gray-800'>
+                        <td className='border border-gray-800 font-semibold'>{items?.id}</td>
+                        <td className='border border-gray-800 font-semibold p-2'>{items?.Categoryname}</td>
+                        <td className=' p-2 flex justify-evenly'>
+                          <button className='bg-blue-600 px-4 py-1 rounded-md text-white'>Update</button>
+                          <button className='bg-red-600 px-4 py-1 rounded-md text-white'>Delete</button>
+                        </td>
+                      </tr>
+                      )
+                    })
+                  }
+                 
                 </tbody>
               </table>
             </div>

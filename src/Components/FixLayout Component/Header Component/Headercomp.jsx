@@ -20,10 +20,12 @@ const Headercomp = () => {
 
       {/*This is Menubar Section*/}
       <div className='flex justify-evenly bg-blue-500 p-2'>
-        {MenuList?.map((items) => {
+        {MenuList?.map((item1) => {
           return (
-            <div className=' text-white'>
-              <NavLink className={({ isActive }) => (isActive ? "border-b-2 border-blue-100 transition-all" : "")} to={items?.path}>{items?.name}</NavLink>
+            <div
+            key={item1?.id}
+            className=' text-white'>
+              <NavLink className={({ isActive }) => (isActive ? "border-b-2 border-blue-100 transition-all" : "")} to={item1?.path}>{item1?.name}</NavLink>
             </div>
           )
         })}
