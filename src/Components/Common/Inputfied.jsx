@@ -9,6 +9,7 @@ const Inputfied = ({ id, type, name, value, label, onChange, className, placehol
                 name={name}
                 placeholder={placeholder}
                 id={id}
+                required
                 value={value}
                 onChange={onChange}
                 className={`${className} outline-none w-[300px] rounded-md p-[8px]`}
