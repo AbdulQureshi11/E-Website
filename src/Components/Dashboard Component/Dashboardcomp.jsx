@@ -5,11 +5,11 @@ import Addcategoriescomp from './Addcategoriescomp';
 import Addusercomp from './Addusercomp';
 
 const Dashboardcomp = () => {
-  const [selected, setselected] = useState("Add Product");
+  const [selected, setselected] = useState("Add Category");
 
   const content = {
-    "Add Product" : <Addproductcomp />,
     "Add Category" : <Addcategoriescomp />,
+    "Add Product" : <Addproductcomp />,
     "Add User" : <Addusercomp />
   }
   
