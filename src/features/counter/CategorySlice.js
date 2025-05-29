@@ -66,6 +66,21 @@ export const asyncUpdateCategory = createAsyncThunk(
     }
 );
 
+// Get Delete Category
+export const asyncDeleteCategory = createAsyncThunk(
+    'asyncDeleteCategory/delete',
+    async (id, {dispatch}) => {
+        try {
+            const response = await axios.delete(`${baseURL}/api/DeleteCategory/${id}`)
+            dispatch(asyncAllCategory())
+            
+            return response?.data?.data;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+);
+
 export const categorySlice = createSlice({
     name: 'category',
     initialState,

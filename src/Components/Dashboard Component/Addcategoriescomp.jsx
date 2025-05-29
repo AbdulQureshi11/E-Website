@@ -4,14 +4,12 @@ import Inputfied from '../Common/Inputfied'
 import { Formik, Form, ErrorMessage } from 'formik'
 import PrimaryBtn from '../Common/PrimaryBtn';
 import { useDispatch, useSelector } from 'react-redux'
-import { asyncAllCategory, asyncCreateCategory, asyncGetSingleCategory, asyncUpdateCategory, asyncUpdateCategoryNull } from '../../features/counter/CategorySlice';
+import { asyncAllCategory, asyncCreateCategory, asyncDeleteCategory, asyncGetSingleCategory, asyncUpdateCategory, asyncUpdateCategoryNull } from '../../features/counter/CategorySlice';
 
 const Addcategoriescomp = () => {
 
   const dispatch = useDispatch()
   const { category, singleCategory } = useSelector((state) => state?.category)
-  //console.log('category', category)
-  console.log('singleCategory', singleCategory)
 
   useEffect(() => {
     dispatch(asyncAllCategory())
@@ -89,7 +87,9 @@ const Addcategoriescomp = () => {
                               <button
                                 onClick={() => dispatch(asyncGetSingleCategory(items?.id))}
                                 className='bg-blue-800 text-white px-4 py-2 rounded-lg'>Update</button>
-                              <button className='bg-red-800 text-white px-4 py-2 rounded-lg'>Delete</button>
+                              <button 
+                              onClick={() => dispatch(asyncDeleteCategory(items?.id))}
+                              className='bg-red-800 text-white px-4 py-2 rounded-lg'>Delete</button>
                             </td>
                           </tr>
                         )
